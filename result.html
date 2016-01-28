@@ -63,7 +63,35 @@
         <p>@Published by <a href="http://qiuhongbao.cn">求红包平台</a></p>
       </footer>
     </div>
-
+          <script type="text/javascript">
+            
+            function getQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var r = window.location.search.substr(1).match(reg);
+                 if(r!=null)return  unescape(r[2]); return null;
+            }
+              var alipay = getQueryString("alipay");
+              var from = getQueryString("from");
+              var to = getQueryString("to");
+              document.getElementById("result").innerHTML=alipay;
+              var froms = document.getElementsByName("from");
+              for(var i=0;i<froms.length;i++){
+                  if(froms[i].value == from){
+                      froms[i].checked = true;
+                  }else{
+                      froms[i].disabled=true;
+                  }
+              }
+              var tos = document.getElementsByName("to");
+              for(var i=0;i<tos.length;i++){
+                  if(tos[i].value == to){
+                      tos[i].checked = true;
+                  }else{
+                      tos[i].disabled=true;
+                  }
+              }
+          </script>
     
 
   </body>
